@@ -1,8 +1,10 @@
+package com.sck;
+
 import java.sql.*;
 import java.util.Properties;
 
 import javax.sql.*;
-import javax.ejb.*;
+
 import javax.naming.*;
 
 import java.sql.ResultSet;
