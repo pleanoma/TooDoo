@@ -1,17 +1,18 @@
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Properties;
 
-import javax.sql.*;
-import javax.ejb.*;
-import javax.naming.*;
-
-import java.sql.ResultSet;
+import javax.sql.DataSource;
 
 public class Connector {
 	
 	 private Object userName;
 	 private Object password;
-	
+	 private DataSource ds = null;
 	    public ResultSet executeQuery(String strSql)
 	        throws SQLException{
 
@@ -19,7 +20,8 @@ public class Connector {
 	        ResultSet rs ;
 	        Statement pstmt;
 	        try {
-	            con = ds.getConnection("root", "1234");
+	            //con = ds.getConnection("webapp", "password");
+	        	con = DriverManager.getConnection("jdbc:mysql://192.168.0.90/voip?user=webapp&password=password");
 	            con.setAutoCommit(false);
 	            pstmt = con.prepareStatement(strSql);
 
@@ -41,7 +43,7 @@ public class Connector {
 		        Connection con = null;
 		        Statement pstmt;
 		        try {
-		            con = ds.getConnection("root", "1234");
+		            con = ds.getConnection("webapp", "password");
 		            con.setAutoCommit(false);
 		            pstmt = con.prepareStatement(strSql);
 
@@ -63,17 +65,14 @@ public class Connector {
 		    connectionProps.put("password", this.password);
 
 		    
-		        conn = DriverManager.getConnection(
-		                   "jdbc:mysql://localhost:3306/", connectionProps);
+		    conn = DriverManager.getConnection("jdbc:mysql://192.168.0.90/voip:3306/", connectionProps);
 		    
 		    System.out.println("Connected to database");
 		    return conn;
-		}
-
-	    private DataSource ds = null;
+		}	    
 		    
 	public static void main(String args[]) throws SQLException {
 		Connector connector = new Connector();
-		ResultSet rs = connector.executeQuery("");
+		ResultSet rs = connector.executeQuery("select * from chat order by id");		
 	}
 }
