@@ -1,4 +1,0 @@
-127.0.0.1 - - [27/Nov/2013:17:51:01 +0700] "GET / HTTP/1.1" 404 951 http-bio-8080-exec-1 32
-127.0.0.1 - - [27/Nov/2013:17:51:09 +0700] "GET /Home.jsp HTTP/1.1" 200 1161 http-bio-8080-exec-2 844
-127.0.0.1 - - [27/Nov/2013:17:51:09 +0700] "GET /css/style.css HTTP/1.1" 200 4624 http-bio-8080-exec-3 0
-127.0.0.1 - - [27/Nov/2013:17:51:09 +0700] "GET /images/logo.png HTTP/1.1" 200 1467 http-bio-8080-exec-5 0
