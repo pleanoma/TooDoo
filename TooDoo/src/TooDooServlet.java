@@ -2,7 +2,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 public class TooDooServlet {
 
-	public ResultSet QueryTooDooListByName(String name){
+	public static ResultSet QueryTooDooListByName(String name){
 		
 		ResultSet dt = null;
 		
@@ -10,12 +10,21 @@ public class TooDooServlet {
 				
 		Connector connect = new Connector();
 		
-		try {
-			dt = connect.executeQuery(sql);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
+			try {
+				dt = connect.executeQuery(sql);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
 		return dt;
 	}
+	
+	public static void main(String args[]){
+		
+		ResultSet sd = QueryTooDooListByName("mon");
+	}
 }
+
+
