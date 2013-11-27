@@ -2,7 +2,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 public class TooDooServlet {
 
-	public static ResultSet QueryTooDooListByName(String name){
+	public static ResultSet getTooDooListByName(String name){
 		
 		ResultSet dt = null;
 		
@@ -23,7 +23,17 @@ public class TooDooServlet {
 	
 	public static void main(String args[]){
 		
-		ResultSet sd = QueryTooDooListByName("mon");
+		String User = null;
+		ResultSet rs =getTooDooListByName("mon");
+	
+		try {
+			while ( rs.next() ) {
+				User = rs.getString("User");
+			}
+			} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
 
