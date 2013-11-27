@@ -1,0 +1,39 @@
+html, body {
+	margin: 0 auto;
+	width: 100%;
+} 
+#main {
+	margin: 0 auto;
+	padding: 0;
+}
+#header {
+	width: 100%;
+	height: 40px;
+	min-height: 40px;
+	background: green;
+}
+#content .article {
+	float: right;
+	width: 80%;
+	height: 100%;
+	background: red;
+}
+#content .sidebar {
+	float: left;
+	width: 20%;
+	height: 100%;
+	background: blue;
+}
+#footer {
+	display: block;
+	width: 100%;
+	height: 40px;
+	min-height: 40px;
+	background: yellow;
+}
+.box-txt {
+	padding: 10px;
+}
+.clr {
+	clear: both;
+}
