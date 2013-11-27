@@ -21,14 +21,18 @@
 	<div class="clr">		
 	</div>
 	<div id="content">
-		<div class="article">
-			<div class="box-txt">
-				aaa
-			</div>
-		</div>
 		<div class="sidebar">
 			<div class="box-txt">
-				aaa
+				<h3>Category</h3>
+			</div>
+		</div>
+		<div class="article">
+			<div class="box-txt">
+				<h2>To-do List Item</h2>
+				<div class="bottom">
+					<textarea name="tbxSubject" cols="182" rows="5">What To Do?</textarea>
+					<input type="submit" value="Create" class="btn">
+				</div>
 			</div>
 		</div>
 	</div>
@@ -36,7 +40,7 @@
 	</div>
 	<div id="footer">
 		<div class="box-txt">
-				
+			Copyright 2013 - 2013 TooDoo.COM
 		</div>
 	</div>
 </body>
