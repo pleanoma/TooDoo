@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<<<<<<< HEAD
+
 	<div id="header">
 		<div class="logo">
 			<img src="./images/logo.png"/>
@@ -47,8 +47,6 @@
 			Copyright 2013 - 2013 TooDoo.COM
 		</div>
 	</div>
-=======
 
->>>>>>> 30fce183d618ac15df5c4a1a68dc105f1d9d5093
 </body>
 </html>
