@@ -41,7 +41,9 @@ public class JacksonCategoryTest {
 		list = connect.executeQueryList("s");
 
 		ObjectMapper mapper = new ObjectMapper();
+		
 		String output = mapper.writeValueAsString(list);
+		System.out.println(list);
 		System.out.println(output);
 	}
 
@@ -55,6 +57,7 @@ public class JacksonCategoryTest {
 		cat = connect.executeQueryCat("");
 		ObjectMapper mapper = new ObjectMapper();
 		String output = mapper.writeValueAsString(cat);
+		System.out.println(cat);
 		System.out.println(output);
 	}
 
