@@ -5,11 +5,11 @@ import java.sql.Date;
 public class TooDooList {
 	private int id;
 	private String subject;
-	private Date dueDate;
+	private String dueDate;
 	private String userID;
 	private int catID;
 	private String priority;
-	private Date createDate;
+	private String createDate;
 
 	public void setId(int iid) {
 		this.id = iid;
@@ -27,11 +27,11 @@ public class TooDooList {
 		this.subject = sSubject;
 	}
 
-	public Date getDue_date() {
+	public String getDue_date() {
 		return dueDate;
 	}
 
-	public void setDue_date(Date sDue_date) {
+	public void setDue_date(String sDue_date) {
 		this.dueDate = sDue_date;
 	}
 
@@ -59,11 +59,11 @@ public class TooDooList {
 		this.priority = sPriority;
 	}
 
-	public Date getCreate_Date() {
+	public String getCreate_Date() {
 		return createDate;
 	}
 
-	public void setCreate_Date(Date sCreate_Date) {
+	public void setCreate_Date(String sCreate_Date) {
 		this.createDate = sCreate_Date;
 	}
 

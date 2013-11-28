@@ -1,34 +1,29 @@
 package com.sck;
 
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import junit.framework.Assert;
+
+import org.codehaus.jackson.JsonGenerationException;
+import org.codehaus.jackson.map.JsonMappingException;
+import org.codehaus.jackson.map.ObjectMapper;
+
 public class TooDooServlet {
 
-	public static ResultSet getTooDooListByName(String name) {
+	public static String getTooDooListByName(String name)
+			throws JsonGenerationException, JsonMappingException, IOException {
 
-		ResultSet dt = null;
-		String sql = null;
-		sql = "select * from TooDooList where UserID ='" + name + "'";
-		TooDooList listtoodoo = new TooDooList();
+		Category cat = new Category();
+		cat.setCatName("my cat name");
+		cat.setUserID("12345");
 
-		Connector connect = new Connector();
-
-		try {
-			dt = Connector.executeQuery(sql);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		return dt;
-	}
-
-	public static void main(String args[]) {
+		ObjectMapper mapper = new ObjectMapper();
+		String output = mapper.writeValueAsString(cat);
 
 		
-		ResultSet rs = getTooDooListByName("mon");
-
-		
+		return output;
 	}
+
 }

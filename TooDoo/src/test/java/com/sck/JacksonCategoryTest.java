@@ -39,24 +39,21 @@ public class JacksonCategoryTest {
 		Assert.assertEquals(expected, output);
 		System.out.println(output);
 	}
+	
+	
+	@Test
+	public void proveQueryDataTooDooListFromDataBasesMySQLAsBModel(){
+		
+		
+		
+	}
+	
 
 	@Test
-	public void proveConnectQueryData() {
-
-		ResultSet dt = null;
-		String sql = null;
-		sql = "select * from TooDooList where UserID ='MON'";
-		TooDooList listtoodoo = new TooDooList();
-
-		Connector connect = new Connector();
-
-		try {
-			dt = Connector.executeQuery(sql);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
+	public void proveQueryDataCategoryFromDataBasesMySQLAsBModel(){
+		
+		
+		
 	}
 
 }
