@@ -44,10 +44,6 @@ public class Connector {
 				System.out.println(rs.getString(2));
 				System.out.println(rs.getString(3));
 				System.out.println(rs.getString(4));
-				System.out.println("b");
-				System.out.println("b");
-				System.out.println("b");
-				System.out.println(list);
 			}
 		} finally {
 			if (con != null)
@@ -76,9 +72,6 @@ public class Connector {
 				cat.setUserID(rs.getString(3));
 				cat.setCatID(rs.getInt(1));
 				cat.setCatName(rs.getString(2));
-				System.out.println(rs.getInt(1));
-				System.out.println(rs.getString(2));
-				System.out.println(rs.getString(3));
 			}
 			
 			//con.commit();
@@ -90,52 +83,13 @@ public class Connector {
 		}
 		return cat;
 	}
-	
-	public static ResultSet executeNonQuery(String strSql) throws SQLException {
-
-		Connection con = null;
-		ResultSet rs;
-		Statement pstmt;
-		try {
-			con = DriverManager.getConnection("jdbc:mysql://192.168.0.90/voip?user=webapp&password=password");
-			con.setAutoCommit(false);
-			pstmt = con.prepareStatement(strSql);
-
-			rs = pstmt.executeQuery(strSql);
-			ResultSetMetaData md = rs.getMetaData();
-
-	
-			while (rs.next()) {
-				int id = rs.getInt(1);
-				String message = rs.getString(5);
-				System.out.println(id);
-				System.out.println(message);
-			}
-			
-			con.commit();
-			// pstmt.close();
-
-		} finally {
-			if (con != null)
-				con.close();
-		}
-		return rs;
-	}
-
 	public static void main(String[] args) throws SQLException {
 		//Connector connector = new Connector();
 		System.out.println("ssssssssssss");
 		TooDooList ppL = executeQueryList("adad");
 		//Category ppC = executeQueryCat("adad");
 		System.out.println("dddd");
-		/*
-		while (rs.next()) {
-			//int id = rs.getInt(1);
-			String message = rs.getString(5);
-			//System.out.println(id);
-			System.out.println(message);
-		}
-*/
+
 	}
 
 }
