@@ -15,7 +15,7 @@ public class TooDooServlet {
 			throws JsonGenerationException, JsonMappingException, IOException,
 			SQLException {
 
-		TooDooList list = new TooDooList();
+		TooDooItem list = new TooDooItem();
 
 		Connector connect = new Connector();
 		list = connect.executeQueryList("s");

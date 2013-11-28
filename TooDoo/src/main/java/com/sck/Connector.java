@@ -13,13 +13,13 @@ import javax.sql.DataSource;
 
 public class Connector {
 
-	public static TooDooList executeQueryList(String strName)
+	public static TooDooItem executeQueryList(String strName)
 			throws SQLException {
 
 		Connection con = null;
 		ResultSet rs;
 		Statement pstmt;
-		TooDooList list = new TooDooList();
+		TooDooItem list = new TooDooItem();
 		try {
 			con = DriverManager
 					.getConnection("jdbc:mysql://127.0.0.1/TooDoo?user=root&password=1234");
