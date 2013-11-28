@@ -1,6 +1,7 @@
 package com.sck;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -32,6 +33,18 @@ public class Connector {
 				
 				cat.setUserID(String.valueOf( rs.getInt(1)));
 				cat.setCatName(rs.getString(2));
+				list.setSubject(rs.getString(2));
+				list.setDue_date(Date.valueOf(rs.getString(2)));
+				list.setUserID(rs.getString(2));
+				list.set;(rs.getString(2));
+				list.setDue_date(rs.getString(2));
+				list.setDue_date(rs.getString(2));
+				list.setDue_date(rs.getString(2));
+				list.setDue_date(rs.getString(2));
+				list.setDue_date(rs.getString(2));
+				
+				
+				
 				String message = rs.getString(5);
 				System.out.println(id);
 				System.out.println(message);
