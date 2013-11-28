@@ -24,9 +24,9 @@ public class Connector {
 			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1/TooDoo?user=root&password=1234");
 			con.setAutoCommit(false);
 			//pstmt = con.prepareStatement("select * from chat order by id");
-			pstmt = con.prepareStatement("select * from TooDooList");
+			pstmt = con.prepareStatement("select * from TooDooList where UserID = '"+strName+"'");
 
-			rs = pstmt.executeQuery("select * from TooDooList");
+			rs = pstmt.executeQuery("select * from TooDooList where UserID = '"+strName+"'");
 			ResultSetMetaData md = rs.getMetaData();
 
 	
@@ -39,12 +39,12 @@ public class Connector {
 				list.setCatID(rs.getInt(5));
 				list.setPriority(rs.getString(6));
 				list.setCreate_Date(rs.getString(7));
-				/*
+				
 				System.out.println(rs.getInt(1));
 				System.out.println(rs.getString(2));
 				System.out.println(rs.getString(3));
 				System.out.println(rs.getString(4));
-				*/
+				
 			}
 		} finally {
 			if (con != null)
@@ -63,9 +63,9 @@ public class Connector {
 			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1/TooDoo?user=root&password=1234");
 			con.setAutoCommit(false);
 			//pstmt = con.prepareStatement("select UserID,CatName,CatID from Category");
-			pstmt = con.prepareStatement("select * from Category");
+			pstmt = con.prepareStatement("select * from TooDooList where UserID = '"+strName+"'");
 
-			rs = pstmt.executeQuery("select * from Category");
+			rs = pstmt.executeQuery("select * from TooDooList where UserID = '"+strName+"'");
 			ResultSetMetaData md = rs.getMetaData();
 	
 			while (rs.next()) {
@@ -87,10 +87,8 @@ public class Connector {
 	/*
 	public static void main(String[] args) throws SQLException {
 		//Connector connector = new Connector();
-		System.out.println("ssssssssssss");
-		TooDooList ppL = executeQueryList("adad");
+		TooDooList ppL = executeQueryList("Mon");
 		//Category ppC = executeQueryCat("adad");
-		System.out.println("dddd");
 
 	}
 	*/
