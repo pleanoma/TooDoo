@@ -1,3 +1,0 @@
-INDEX VERSION 1.126
-C:\Documents and Settings\Nat\TooDoo\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1574751990.index
-\TooDoo\src
