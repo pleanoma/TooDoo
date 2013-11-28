@@ -13,16 +13,17 @@ import org.codehaus.jackson.map.ObjectMapper;
 public class TooDooServlet {
 
 	public static String getTooDooListByName(String name)
-			throws JsonGenerationException, JsonMappingException, IOException {
+			throws JsonGenerationException, JsonMappingException, IOException,
+			SQLException {
 
-		Category cat = new Category();
-		cat.setCatName("my cat name");
-		cat.setUserID("12345");
+		TooDooList list = new TooDooList();
+
+		Connector connect = new Connector();
+		list = connect.executeQueryList("s");
 
 		ObjectMapper mapper = new ObjectMapper();
-		String output = mapper.writeValueAsString(cat);
+		String output = mapper.writeValueAsString(list);
 
-		
 		return output;
 	}
 
