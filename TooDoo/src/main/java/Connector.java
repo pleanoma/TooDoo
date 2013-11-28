@@ -30,7 +30,7 @@ public class Connector {
 	            ResultSetMetaData md = rs.getMetaData();
 	            
 	            con.commit();
-	            pstmt.close();
+	            //pstmt.close();
 
 	        } finally {
 	            if (con != null) con.close();
@@ -75,5 +75,12 @@ public class Connector {
 	public static void main(String args[]) throws SQLException {
 		Connector connector = new Connector();
 		ResultSet rs = connector.executeQuery("select * from chat order by id");		
+		while (rs.next()) 
+		{
+			int id = rs.getInt(1);
+			String message = rs.getString(5);
+			System.out.println(id);
+			System.out.println(message);
+		} 
 	}
 }
