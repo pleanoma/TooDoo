@@ -15,16 +15,6 @@ import org.junit.Test;
 
 public class JacksonCategoryTest {
 
-	@Before
-	public void setUp() {
-		System.out.println("------");
-	}
-
-	@After
-	public void tearDown() {
-		System.out.println("------");
-	}
-
 	@Test
 	public void proveJacksonCanWriteJSONUsingCategoryAsAModel()
 			throws JsonGenerationException, JsonMappingException, IOException {
@@ -37,23 +27,38 @@ public class JacksonCategoryTest {
 
 		String expected = "{\"catID\":0,\"catName\":\"my cat name\",\"userID\":\"12345\"}";
 		Assert.assertEquals(expected, output);
-		System.out.println(output);
-	}
-	
-	
-	@Test
-	public void proveQueryDataTooDooListFromDataBasesMySQLAsBModel(){
-		
-		
 		
 	}
-	
 
 	@Test
-	public void proveQueryDataCategoryFromDataBasesMySQLAsBModel(){
+	public void proveQueryDataTooDooListFromDataBasesMySQLAsBModel()
+			throws SQLException, JsonGenerationException, JsonMappingException,
+			IOException {
+
+		TooDooList list = new TooDooList();
+
+		Connector connect = new Connector();
+		list = connect.executeQueryList("s");
+
+		ObjectMapper mapper = new ObjectMapper();
 		
-		
-		
+		String output = mapper.writeValueAsString(list);
+		System.out.println(list);
+		System.out.println(output);
+	}
+
+	@Test
+	public void proveQueryDataCategoryFromDataBasesMySQLAsBModel()
+			throws SQLException, JsonGenerationException, JsonMappingException,
+			IOException {
+		Category cat = new Category();
+
+		Connector connect = new Connector();
+		cat = connect.executeQueryCat("");
+		ObjectMapper mapper = new ObjectMapper();
+		String output = mapper.writeValueAsString(cat);
+		System.out.println(cat);
+		System.out.println(output);
 	}
 
 }

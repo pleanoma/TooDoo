@@ -1,8 +1,6 @@
 package com.sck;
 
-import java.sql.Date;
-
-public class TooDooList {
+public class TooDooItem {
 	private int id;
 	private String subject;
 	private String dueDate;
