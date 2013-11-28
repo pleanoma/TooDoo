@@ -18,7 +18,7 @@ public class TooDooServlet {
 		Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1/TooDoo?user=root&password=1234");
 
 		Connector connect = new Connector(con);
-		 TooDooItem[] list = connect.findAllTodoByUserID("Mon");
+		TooDooItem[] list = connect.findAllTodoByUserID("Mon");
 
 		ObjectMapper mapper = new ObjectMapper();
 		String output = mapper.writeValueAsString(list);

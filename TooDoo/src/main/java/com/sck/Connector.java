@@ -58,6 +58,7 @@ public class Connector {
 		Connection con = null;
 		ResultSet rs;
 		Statement pstmt;
+
 		List<Category> categoryList = new ArrayList<>();
 
 		try {

@@ -1,3 +1,5 @@
+<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,9 +13,9 @@
 			<img src="./images/logo.png"/>
 		</div>
 		<div class="userdetail">
-			<label for="UserDetail">name</label>
+			<label for="UserDetail">นายสมชาย สมหญิง</label>
 			|
-			<label for="UserLogout">logout</label>
+			<label for="UserLogout">ออกจากระบบ</label>
 		</div>
 	</div>
 	<div class="clr">		

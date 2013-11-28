@@ -49,7 +49,6 @@ public class JacksonCategoryTest {
 		ObjectMapper mapper = new ObjectMapper();
 		
 		String output = mapper.writeValueAsString(list);
-		System.out.println(list);
 		System.out.println(output);
 	}
 
