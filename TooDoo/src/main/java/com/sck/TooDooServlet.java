@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import junit.framework.Assert;
 
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.map.JsonMappingException;
