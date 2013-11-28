@@ -1,9 +1,9 @@
 package com.sck;
 
 import java.io.IOException;
-import java.sql.ResultSet;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
-
 
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.map.JsonMappingException;
@@ -15,10 +15,10 @@ public class TooDooServlet {
 			throws JsonGenerationException, JsonMappingException, IOException,
 			SQLException {
 
-		TooDooList list = new TooDooList();
+		Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1/TooDoo?user=root&password=1234");
 
-		Connector connect = new Connector();
-		list = connect.executeQueryList("s");
+		Connector connect = new Connector(con);
+		 TooDooItem[] list = connect.findAllTodoByUserID("Mon");
 
 		ObjectMapper mapper = new ObjectMapper();
 		String output = mapper.writeValueAsString(list);

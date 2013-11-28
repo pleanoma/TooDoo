@@ -1,19 +1,27 @@
 package com.sck;
 
 import java.io.IOException;
-import java.sql.ResultSet;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.List;
 
 import junit.framework.Assert;
 
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 public class JacksonCategoryTest {
+	
+	private Connection con;
+
+	@Before
+	public void setup() throws SQLException {
+		con = DriverManager.getConnection("jdbc:mysql://127.0.0.1/TooDoo?user=root&password=1234");
+	}
 
 	@Test
 	public void proveJacksonCanWriteJSONUsingCategoryAsAModel()
@@ -35,10 +43,8 @@ public class JacksonCategoryTest {
 			throws SQLException, JsonGenerationException, JsonMappingException,
 			IOException {
 
-		TooDooList list = new TooDooList();
-
-		Connector connect = new Connector();
-		list = connect.executeQueryList("s");
+		Connector connect = new Connector(con);
+		TooDooItem[] list = connect.findAllTodoByUserID("Mon");
 
 		ObjectMapper mapper = new ObjectMapper();
 		
@@ -51,10 +57,9 @@ public class JacksonCategoryTest {
 	public void proveQueryDataCategoryFromDataBasesMySQLAsBModel()
 			throws SQLException, JsonGenerationException, JsonMappingException,
 			IOException {
-		Category cat = new Category();
 
-		Connector connect = new Connector();
-		cat = connect.executeQueryCat("");
+		Connector connect = new Connector(con);
+		List<Category> cat = connect.executeQueryCat("");
 		ObjectMapper mapper = new ObjectMapper();
 		String output = mapper.writeValueAsString(cat);
 		System.out.println(cat);
