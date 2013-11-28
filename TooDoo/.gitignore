@@ -4,4 +4,4 @@
 *.classpath
 */target
 /target
-
+/bin
