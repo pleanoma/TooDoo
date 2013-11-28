@@ -22,13 +22,17 @@
 		<div class="sidebar">
 			<div class="box-txt">
 				<h3>Category</h3>
+				<div class="bottom">
+					<textarea name="tbxCategory" rows="5" style="width: 100%;">Category Name?</textarea>
+					<input type="submit" value="Create" class="btn">
+				</div>
 			</div>
 		</div>
 		<div class="article">
 			<div class="box-txt">
 				<h2>To-do List Item</h2>
 				<div class="bottom">
-					<textarea name="tbxSubject" cols="182" rows="5">What To Do?</textarea>
+					<textarea name="tbxSubject" rows="5" style="width: 100%;">What To Do?</textarea>
 					<input type="submit" value="Create" class="btn">
 				</div>
 			</div>
