@@ -15,13 +15,13 @@ public class TooDooServlet {
 			throws JsonGenerationException, JsonMappingException, IOException,
 			SQLException {
 
-		TooDooItem list = new TooDooItem();
+		TooDooItem item = new TooDooItem();
 
 		Connector connect = new Connector();
-		list = connect.executeQueryList("s");
+		item = connect.executeQueryList("s");
 
 		ObjectMapper mapper = new ObjectMapper();
-		String output = mapper.writeValueAsString(list);
+		String output = mapper.writeValueAsString(item);
 
 		return output;
 	}

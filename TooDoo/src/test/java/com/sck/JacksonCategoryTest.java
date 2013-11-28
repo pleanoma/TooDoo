@@ -35,15 +35,15 @@ public class JacksonCategoryTest {
 			throws SQLException, JsonGenerationException, JsonMappingException,
 			IOException {
 
-		TooDooList list = new TooDooList();
+		TooDooItem item = new TooDooItem();
 
 		Connector connect = new Connector();
-		list = connect.executeQueryList("s");
+		item = connect.executeQueryList("s");
 
 		ObjectMapper mapper = new ObjectMapper();
 		
-		String output = mapper.writeValueAsString(list);
-		System.out.println(list);
+		String output = mapper.writeValueAsString(item);
+		System.out.println(item);
 		System.out.println(output);
 	}
 
