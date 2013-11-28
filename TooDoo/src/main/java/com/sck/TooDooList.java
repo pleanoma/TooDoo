@@ -11,16 +11,16 @@ public class TooDooList {
 	private String priority;
 	private Date createDate;
 
-	public String getSubject() {
-		return subject;
-	}
-
 	public void setId(int iid) {
 		this.id = iid;
 	}
 
 	public int setId() {
 		return id;
+	}
+
+	public String getSubject() {
+		return subject;
 	}
 
 	public void setSubject(String sSubject) {
@@ -47,7 +47,7 @@ public class TooDooList {
 		return catID;
 	}
 
-	public void setUserID(int iCatID) {
+	public void setCatID(int iCatID) {
 		this.catID = iCatID;
 	}
 
