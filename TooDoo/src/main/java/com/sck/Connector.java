@@ -1,5 +1,6 @@
 package com.sck;
 
+
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
@@ -33,11 +34,18 @@ public class Connector {
 				System.out.println("a");
 				list.setId(rs.getInt(1));
 				list.setSubject(rs.getString(2));
-				list.setDue_date(Date.valueOf(rs.getString(3)));
+				list.setDue_date(rs.getString(3));
 				list.setUserID(rs.getString(4));
 				list.setCatID(rs.getInt(5));
 				list.setPriority(rs.getString(6));
-				list.setCreate_Date(Date.valueOf(rs.getString(7)));
+				list.setCreate_Date(rs.getString(7));
+				
+				System.out.println(rs.getInt(1));
+				System.out.println(rs.getString(2));
+				System.out.println((rs.getString(3));
+				System.out.println(rs.getString(4));
+				System.out.println("b");
+				System.out.println("b");
 				System.out.println("b");
 				System.out.println(list);
 			}
@@ -65,10 +73,12 @@ public class Connector {
 	
 			while (rs.next()) {
 				System.out.println("a");
-				cat.setUserID(rs.getString(1));
+				cat.setUserID(rs.getString(3));
+				cat.setCatID(rs.getInt(1));
 				cat.setCatName(rs.getString(2));
-				cat.setCatID(rs.getInt(3));
-				System.out.println("b");
+				System.out.println(rs.getInt(1));
+				System.out.println(rs.getString(2));
+				System.out.println(rs.getString(3));
 			}
 			
 			//con.commit();
@@ -111,21 +121,21 @@ public class Connector {
 		}
 		return rs;
 	}
-/*
+
 	public static void main(String[] args) throws SQLException {
 		//Connector connector = new Connector();
 		System.out.println("ssssssssssss");
 		TooDooList ppL = executeQueryList("adad");
 		//Category ppC = executeQueryCat("adad");
 		System.out.println("dddd");
-		
+		/*
 		while (rs.next()) {
 			//int id = rs.getInt(1);
 			String message = rs.getString(5);
 			//System.out.println(id);
 			System.out.println(message);
 		}
-
-	}
 */
+	}
+
 }
