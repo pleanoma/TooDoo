@@ -12,10 +12,6 @@ import javax.sql.DataSource;
 
 public class Connector {
 
-	private Object userName;
-	private Object password;
-	private DataSource ds = null;
-
 	public static ResultSet executeQuery(String strSql) throws SQLException {
 
 		Connection con = null;
@@ -29,9 +25,13 @@ public class Connector {
 			rs = pstmt.executeQuery(strSql);
 			ResultSetMetaData md = rs.getMetaData();
 
-			
+	
 			while (rs.next()) {
-				int id = rs.getInt(1);
+				Category cat = new Category();
+				TooDooList list = new TooDooList();
+				
+				cat.setUserID(String.valueOf( rs.getInt(1)));
+				cat.setCatName(rs.getString(2));
 				String message = rs.getString(5);
 				System.out.println(id);
 				System.out.println(message);
@@ -48,37 +48,35 @@ public class Connector {
 	}
 	
 	
-	public void executeNonQuery(String strSql) throws SQLException {
+	public static ResultSet executeNonQuery(String strSql) throws SQLException {
 
 		Connection con = null;
+		ResultSet rs;
 		Statement pstmt;
 		try {
-			con = ds.getConnection("webapp", "password");
+			con = DriverManager.getConnection("jdbc:mysql://192.168.0.90/voip?user=webapp&password=password");
 			con.setAutoCommit(false);
 			pstmt = con.prepareStatement(strSql);
 
-			pstmt.executeQuery(strSql);
+			rs = pstmt.executeQuery(strSql);
+			ResultSetMetaData md = rs.getMetaData();
 
+	
+			while (rs.next()) {
+				int id = rs.getInt(1);
+				String message = rs.getString(5);
+				System.out.println(id);
+				System.out.println(message);
+			}
+			
 			con.commit();
-			pstmt.close();
+			// pstmt.close();
 
 		} finally {
 			if (con != null)
 				con.close();
 		}
-	}
-	public Connection getConnection() throws SQLException {
-
-		Connection conn = null;
-		Properties connectionProps = new Properties();
-		connectionProps.put("user", this.userName);
-		connectionProps.put("password", this.password);
-
-		conn = DriverManager.getConnection(
-				"jdbc:mysql://192.168.0.90/voip:3306/", connectionProps);
-
-		System.out.println("Connected to database");
-		return conn;
+		return rs;
 	}
 
 	public static void main(String[] args) throws SQLException {
