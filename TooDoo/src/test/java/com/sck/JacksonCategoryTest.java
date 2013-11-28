@@ -27,7 +27,7 @@ public class JacksonCategoryTest {
 
 		String expected = "{\"catID\":0,\"catName\":\"my cat name\",\"userID\":\"12345\"}";
 		Assert.assertEquals(expected, output);
-		System.out.println(output);
+		
 	}
 
 	@Test
