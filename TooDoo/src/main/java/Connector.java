@@ -14,12 +14,13 @@ public class Connector {
 	 private Object userName;
 	 private Object password;
 	 private DataSource ds = null;
+	 static Statement pstmt;
 	    public ResultSet executeQuery(String strSql)
 	        throws SQLException{
 
 	        Connection con = null;
 	        ResultSet rs ;
-	        Statement pstmt;
+	     
 	        try {
 	            //con = ds.getConnection("webapp", "password");
 	        	con = DriverManager.getConnection("jdbc:mysql://192.168.0.90/voip?user=webapp&password=password");
@@ -74,6 +75,7 @@ public class Connector {
 		    
 	public static void main(String args[]) throws SQLException {
 		Connector connector = new Connector();
-		ResultSet rs = connector.executeQuery("select * from chat order by id");		
+		ResultSet rs = connector.executeQuery("select * from chat order by id");
+		  
 	}
 }
