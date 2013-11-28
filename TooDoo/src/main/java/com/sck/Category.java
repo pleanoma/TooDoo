@@ -1,27 +1,31 @@
 package com.sck;
 
 public class Category {
-	public String CatName;
+	private int catID;
+	private String catName;
+	private String userID;
+
+	public int getCatID() {
+		return catID;
+	}
+
+	public void setCatID(int iCatID) {
+		this.catID = iCatID;
+	}
 
 	public String getCatName() {
-		return CatName;
+		return catName;
 	}
 
 	public void setCatName(String sCatName) {
-		this.CatName = sCatName;
+		this.catName = sCatName;
 	}
 
-	public String UserID;
-
 	public String getUserID() {
-		return UserID;
+		return userID;
 	}
 
 	public void setUserID(String sUserID) {
-		this.UserID = sUserID;
-	}
-
-	public static void main(String[] args) {
-
+		this.userID = sUserID;
 	}
 }

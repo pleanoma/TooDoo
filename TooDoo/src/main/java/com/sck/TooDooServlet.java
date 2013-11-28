@@ -15,7 +15,7 @@ public class TooDooServlet {
 		Connector connect = new Connector();
 
 		try {
-			dt = connect.executeQuery(sql);
+			dt = Connector.executeQuery(sql);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -26,17 +26,9 @@ public class TooDooServlet {
 
 	public static void main(String args[]) {
 
-		String User = null;
+		
 		ResultSet rs = getTooDooListByName("mon");
 
-		try {
-			while (rs.next()) {
-				User = rs.getString("User");
-
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 	}
 }

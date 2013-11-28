@@ -1,67 +1,70 @@
 package com.sck;
 
+import java.sql.Date;
+
 public class TooDooList {
-	public String Subject;
+	private int id;
+	private String subject;
+	private Date dueDate;
+	private String userID;
+	private int catID;
+	private String priority;
+	private Date createDate;
 
 	public String getSubject() {
-		return Subject;
+		return subject;
+	}
+
+	public void setId(int iid) {
+		this.id = iid;
+	}
+
+	public int setId() {
+		return id;
 	}
 
 	public void setSubject(String sSubject) {
-		this.Subject = sSubject;
+		this.subject = sSubject;
 	}
 
-	public String Due_date;
-
-	public String getDue_date() {
-		return Due_date;
+	public Date getDue_date() {
+		return dueDate;
 	}
 
-	public void setDue_date(String sDue_date) {
-		this.Due_date = sDue_date;
+	public void setDue_date(Date sDue_date) {
+		this.dueDate = sDue_date;
 	}
-
-	public String UserID;
 
 	public String getUserID() {
-		return UserID;
+		return userID;
 	}
 
 	public void setUserID(String sUserID) {
-		this.UserID = sUserID;
+		this.userID = sUserID;
 	}
 
-	public int CatID;
-
 	public int getCatID() {
-		return CatID;
+		return catID;
 	}
 
 	public void setUserID(int iCatID) {
-		this.CatID = iCatID;
+		this.catID = iCatID;
 	}
 
-	public String Priority;
-
 	public String getPriority() {
-		return Priority;
+		return priority;
 	}
 
 	public void setPriority(String sPriority) {
-		this.Priority = sPriority;
+		this.priority = sPriority;
 	}
 
-	public String Create_Date;
-
-	public String getCreate_Date() {
-		return Create_Date;
+	public Date getCreate_Date() {
+		return createDate;
 	}
 
-	public void setCreate_Date(String sCreate_Date) {
-		this.Create_Date = sCreate_Date;
+	public void setCreate_Date(Date sCreate_Date) {
+		this.createDate = sCreate_Date;
 	}
 
-	public static void main(String[] args) {
-
-	}
 }
