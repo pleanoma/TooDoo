@@ -39,11 +39,12 @@ public class Connector {
 				list.setCatID(rs.getInt(5));
 				list.setPriority(rs.getString(6));
 				list.setCreate_Date(rs.getString(7));
-				
+				/*
 				System.out.println(rs.getInt(1));
 				System.out.println(rs.getString(2));
 				System.out.println(rs.getString(3));
 				System.out.println(rs.getString(4));
+				*/
 			}
 		} finally {
 			if (con != null)
@@ -83,6 +84,7 @@ public class Connector {
 		}
 		return cat;
 	}
+	/*
 	public static void main(String[] args) throws SQLException {
 		//Connector connector = new Connector();
 		System.out.println("ssssssssssss");
@@ -91,5 +93,6 @@ public class Connector {
 		System.out.println("dddd");
 
 	}
+	*/
 
 }
