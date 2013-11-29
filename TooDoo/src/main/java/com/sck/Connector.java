@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,9 +24,6 @@ public class Connector {
 		PreparedStatement pstmt;
 		List<TooDooItem> list = new ArrayList<TooDooItem>();
 		try {
-//			con = DriverManager
-//					.getConnection("jdbc:mysql://127.0.0.1/TooDoo?user=root&password=1234");
-//			con.setAutoCommit(false);
 			pstmt = con.prepareStatement("select * from TooDooList where UserID = ?");
 			pstmt.setString(1, strName);
 
@@ -87,13 +83,11 @@ public class Connector {
 		return listCat.toArray(new Category[listCat.size()]);
 	}
 
-	public static Category executeNonQueryCat(String strName)
+	public void executeNonQueryCat(String strName)
 			throws SQLException {
 
 		Connection con = null;
-		ResultSet rs;
 		PreparedStatement pstmt;
-		Category cat = new Category();
 		try {
 			con = DriverManager
 					.getConnection("jdbc:mysql://127.0.0.1/TooDoo?user=root&password=1234");
@@ -110,6 +104,5 @@ public class Connector {
 			if (con != null)
 				con.close();
 		}
-		return cat;
 	}
 }
