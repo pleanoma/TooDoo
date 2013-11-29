@@ -11,9 +11,9 @@ import java.util.List;
 
 
 public class Connector {
-	
+
 	private Connection con;
-	
+
 	public Connector(Connection conn) {
 		this.con = conn;
 	}
@@ -23,7 +23,7 @@ public class Connector {
 
 		ResultSet rs = null;
 		PreparedStatement pstmt;
-		List<TooDooItem> list = new ArrayList<>();
+		List<TooDooItem> list = new ArrayList<TooDooItem>();
 		try {
 //			con = DriverManager
 //					.getConnection("jdbc:mysql://127.0.0.1/TooDoo?user=root&password=1234");
@@ -48,7 +48,7 @@ public class Connector {
 			if (rs != null)
 				rs.close();
 		}
-		
+
 		return list.toArray(new TooDooItem[list.size()]);
 	}
 
@@ -59,7 +59,7 @@ public class Connector {
 		ResultSet rs;
 		Statement pstmt;
 
-		List<Category> categoryList = new ArrayList<>();
+		List<Category> categoryList = new ArrayList<Category>();
 
 		try {
 
