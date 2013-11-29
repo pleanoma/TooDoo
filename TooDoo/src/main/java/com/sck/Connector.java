@@ -28,7 +28,7 @@ public class Connector {
 //			con = DriverManager
 //					.getConnection("jdbc:mysql://127.0.0.1/TooDoo?user=root&password=1234");
 //			con.setAutoCommit(false);
-			pstmt = con.prepareStatement("select * from TooDooList where UserID = ?");
+			pstmt = con.prepareStatement("select * from TooDooList where UserID = ? LIMIT 10");
 			pstmt.setString(1, strName);
 
 			rs = pstmt.executeQuery();

@@ -3,4 +3,15 @@
                       http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	version="3.0" metadata-complete="true">
 	<display-name>TooDoo Web Application</display-name>
+	<servlet>
+		<description>
+		</description>
+		<display-name>TooDooServlet2</display-name>
+		<servlet-name>TooDooServlet2</servlet-name>
+		<servlet-class>com.sck.TooDooServlet2</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TooDooServlet2</servlet-name>
+		<url-pattern>/TooDooServlet2</url-pattern>
+	</servlet-mapping>
 </web-app>
