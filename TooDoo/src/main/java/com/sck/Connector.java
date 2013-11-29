@@ -52,45 +52,39 @@ public class Connector {
 		return list.toArray(new TooDooItem[list.size()]);
 	}
 
-	public List<Category> executeQueryCat(String strName)
+	public Category[] findAllCatByUserID(String strName)
 			throws SQLException {
 
 		Connection con = null;
-		ResultSet rs;
-		Statement pstmt;
+		ResultSet rs = null;
+		PreparedStatement pstmt;
 
-		List<Category> categoryList = new ArrayList<Category>();
+		List<Category> listCat = new ArrayList<Category>();
 
 		try {
 
 			con = DriverManager
 					.getConnection("jdbc:mysql://127.0.0.1/TooDoo?user=root&password=1234");
 			con.setAutoCommit(false);
-			// pstmt =
-			// con.prepareStatement("select UserID,CatName,CatID from Category");
-			pstmt = con
-					.prepareStatement("select * from TooDooList where UserID = '"
-							+ strName + "'");
+			pstmt = con.prepareStatement("select * from Category where UserID = ?");
+			pstmt.setString(1, strName);
 
-			rs = pstmt.executeQuery("select * from TooDooList where UserID = '"
-					+ strName + "'");
+			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
 				Category cat = new Category();
 				cat.setUserID(rs.getString(3));
 				cat.setCatID(rs.getInt(1));
 				cat.setCatName(rs.getString(2));
-				categoryList.add(cat);
+				listCat.add(cat);
+			
 			}
-
-			// con.commit();
-			// pstmt.close();
 
 		} finally {
 			if (con != null)
 				con.close();
 		}
-		return categoryList;
+		return listCat.toArray(new Category[listCat.size()]);
 	}
 
 	public static Category executeNonQueryCat(String strName)
@@ -98,29 +92,19 @@ public class Connector {
 
 		Connection con = null;
 		ResultSet rs;
-		Statement pstmt;
+		PreparedStatement pstmt;
 		Category cat = new Category();
 		try {
 			con = DriverManager
 					.getConnection("jdbc:mysql://127.0.0.1/TooDoo?user=root&password=1234");
 			con.setAutoCommit(false);
-			// pstmt =
-			// con.prepareStatement("select UserID,CatName,CatID from Category");
-			pstmt = con
-					.prepareStatement("select * from TooDooList where UserID = '"
-							+ strName + "'");
 
-			rs = pstmt.executeQuery("select * from TooDooList where UserID = '"
-					+ strName + "'");
+			pstmt = con.prepareStatement("insert into TooDoo.TooDooList (Subject,Due_date,UserID,CatID,Priority,Create_date) values	('subject 2',NULL,'Tin',NULL,NULL,'2013-11-28');");
 
-			while (rs.next()) {
-				cat.setUserID(rs.getString(3));
-				cat.setCatID(rs.getInt(1));
-				cat.setCatName(rs.getString(2));
-			}
+			pstmt.executeUpdate();
 
-			// con.commit();
-			// pstmt.close();
+			con.commit();
+			pstmt.close();
 
 		} finally {
 			if (con != null)

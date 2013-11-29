@@ -9,6 +9,7 @@ import junit.framework.Assert;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class ConnectorIntegrationTest {
@@ -22,6 +23,8 @@ public class ConnectorIntegrationTest {
 		con.setAutoCommit(false);
 		
 		connector = new Connector(con);
+		
+		/*
 		PreparedStatement statement = con.prepareStatement("insert into TooDoo.TooDooList (Subject,Due_date,UserID,CatID,Priority,Create_date) values	('subject 1',NULL,'Tin',NULL,NULL,'2013-11-27');");
 		statement.executeUpdate();
 		
@@ -30,13 +33,30 @@ public class ConnectorIntegrationTest {
 		
 		statement = con.prepareStatement("insert into TooDoo.TooDooList (Subject,Due_date,UserID,CatID,Priority,Create_date) values	('subject 3',NULL,'Tin',NULL,NULL,'2013-11-29');");
 		statement.executeUpdate();
+	*/
+		PreparedStatement statement = con.prepareStatement("insert into Category (Catname,UserID) values ('Call Center','Mon');");
+		statement.executeUpdate();
+		
+		statement = con.prepareStatement("insert into Category (Catname,UserID) values ('Call Center','Mon');");
+		statement.executeUpdate();
+		
+		statement = con.prepareStatement("insert into Category (Catname,UserID) values ('Call Center','Mon');");
+		statement.executeUpdate();
 	}
 	
-	@Test
+	/*
+	@Test @Ignore
 	public void findAllTodoByUserIDUsingMySQL() throws SQLException {
 		
 		TooDooItem[] items = connector.findAllTodoByUserID("Tin");
 		Assert.assertEquals(3, items.length);
+	}*/
+	
+	@Test
+	public void findAllCatByUserIDUsingMySQL() throws SQLException {
+		
+		Category[] cat = connector.findAllCatByUserID("Mon");
+		Assert.assertEquals(3, cat.length);
 	}
 	
 	@After
