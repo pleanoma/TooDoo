@@ -56,8 +56,8 @@
 			<div class="box-txt">
 				<h3>Category</h3>
 				<div class="bottom">
-					<textarea name="tbxCategory" rows="5" style="width: 100%;">Category Name?</textarea>
-					<input type="submit" value="Create" class="btn">
+					<textarea placeholder ="Category Name?" id="tbxcategory" name="tbxCategory" rows="5" style="width: 100%;"></textarea>
+					<input id="createcat" type="submit" value="Create" class="btn">
 				</div>
 			</div>
 		</div>
@@ -66,7 +66,7 @@
 				<h2>To-do List Item</h2>
 				<div class="bottom">
 					<div id="result_toodoo"></div>
-					<textarea name="tbxSubject" rows="5" style="width: 100%;">What To Do?</textarea>
+					<textarea placeholder ="What To Do?"  id="tbxsubject" name="tbxSubject" rows="5" style="width: 100%;"></textarea>
 					<input type="submit" value="Create" class="btn">
 				</div>
 			</div>
