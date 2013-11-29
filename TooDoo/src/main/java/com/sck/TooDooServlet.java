@@ -26,4 +26,18 @@ public class TooDooServlet {
 		return output;
 	}
 
+	public static String getCategotyByName(String name)
+			throws JsonGenerationException, JsonMappingException, IOException,
+			SQLException {
+
+		Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1/TooDoo?user=root&password=1234");
+
+		Connector connect = new Connector(con);
+		Category[] list = connect.findAllCatByUserID(name);
+
+		ObjectMapper mapper = new ObjectMapper();
+		String output = mapper.writeValueAsString(list);
+
+		return output;
+	}
 }

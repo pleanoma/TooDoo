@@ -10,8 +10,19 @@
 		<servlet-name>TooDooServlet2</servlet-name>
 		<servlet-class>com.sck.TooDooServlet2</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>TooDooServlet3</display-name>
+		<servlet-name>TooDooServlet3</servlet-name>
+		<servlet-class>com.sck.TooDooServlet3</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>TooDooServlet2</servlet-name>
 		<url-pattern>/TooDooServlet2</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>TooDooServlet3</servlet-name>
+		<url-pattern>/TooDooServlet3</url-pattern>
 	</servlet-mapping>
 </web-app>
